@@ -489,6 +489,25 @@
       ],
       "answer": "Improved const type parameters",
       "explanation": "TypeScript 5.6 introduced improved const type parameters (const assertions in generic functions), making it easier to infer literal types through generic functions."
+    },
+    {
+      "question": "In FastAPI, what does dependency injection with Depends() primarily help with?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Sharing database sessions and auth across routes",
+        "Bundling static assets",
+        "Replacing the need for HTTP",
+        "Compiling Python to WebAssembly"
+      ],
+      "answer": "Sharing database sessions and auth across routes",
+      "explanation": "Depends() injects callables (e.g. get_db, get_current_user) so routes stay testable and DRY."
+    },
+    {
+      "question": "Which HTTP status code typically means 'Created' after a successful POST?",
+      "type": "API / HTTP",
+      "options": ["200 OK", "201 Created", "204 No Content", "302 Found"],
+      "answer": "201 Created",
+      "explanation": "201 Created is used when a new resource is created; 204 is success with no body; 302 is a redirect."
     }
   ]
 }
