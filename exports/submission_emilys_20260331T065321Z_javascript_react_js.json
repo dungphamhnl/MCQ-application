@@ -1,0 +1,86 @@
+{
+  "submitted_at": "2026-03-31T06:53:21.030031+00:00",
+  "username": "emilys",
+  "mcq_type": "JavaScript / React.js",
+  "score": 5,
+  "total": 11,
+  "answers": [
+    {
+      "questionId": 0,
+      "question": "What is the JavaScript method used to declare an integer-type variable?",
+      "selected": "var, let",
+      "correct": true,
+      "correctAnswer": "var, let"
+    },
+    {
+      "questionId": 1,
+      "question": "How do you define an arrow function in JavaScript?",
+      "selected": "(parameters) => { instructions }",
+      "correct": true,
+      "correctAnswer": "(parameters) => { instructions }"
+    },
+    {
+      "questionId": 2,
+      "question": "Which JavaScript library is used for global state management in React?",
+      "selected": "Redux",
+      "correct": true,
+      "correctAnswer": "Redux"
+    },
+    {
+      "questionId": 3,
+      "question": "In React, which lifecycle method is called after the initial render of the component?",
+      "selected": "componentDidMount()",
+      "correct": true,
+      "correctAnswer": "componentDidMount()"
+    },
+    {
+      "questionId": 4,
+      "question": "What is the difference between a class component and a functional component in React?",
+      "selected": "Class components are faster, functional components are deprecated.",
+      "correct": false,
+      "correctAnswer": "Class components have local state, whereas functional components do not have state."
+    },
+    {
+      "questionId": 20,
+      "question": "What is the difference between 'let' and 'var' in JavaScript for declaring variables?",
+      "selected": "'let' is used to declare local variables, whereas 'var' declares global variables",
+      "correct": true,
+      "correctAnswer": "'let' is used to declare local variables, whereas 'var' declares global variables"
+    },
+    {
+      "questionId": 21,
+      "question": "How do you include a comment in your JavaScript code?",
+      "selected": "/* This is a comment */",
+      "correct": false,
+      "correctAnswer": "// This is a comment"
+    },
+    {
+      "questionId": 22,
+      "question": "Which JavaScript method is used to add an element to the end of an array?",
+      "selected": "extend()",
+      "correct": false,
+      "correctAnswer": "push()"
+    },
+    {
+      "questionId": 36,
+      "question": "What is the main purpose of React Server Components (RSC) introduced in React 19?",
+      "selected": "Static site generation only",
+      "correct": false,
+      "correctAnswer": "Server-side rendering with zero client bundle impact"
+    },
+    {
+      "questionId": 39,
+      "question": "Which React hook was stabilized in React 19 for handling promises directly?",
+      "selected": "useDeferredValue()",
+      "correct": false,
+      "correctAnswer": "use() hook"
+    },
+    {
+      "questionId": 40,
+      "question": "What does 'TypeScript 5.6' introduce for better inference in 2026?",
+      "selected": "Effect system",
+      "correct": false,
+      "correctAnswer": "Improved const type parameters"
+    }
+  ]
+}

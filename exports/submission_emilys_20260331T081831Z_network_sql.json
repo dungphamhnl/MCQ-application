@@ -1,0 +1,23 @@
+{
+  "submitted_at": "2026-03-31T08:18:31.509708+00:00",
+  "username": "emilys",
+  "mcq_type": "Network / SQL",
+  "score": 1,
+  "total": 2,
+  "answers": [
+    {
+      "questionId": 12,
+      "question": "What does the acronym 'SQL' stand for in databases?",
+      "selected": "Structured Query Language",
+      "correct": true,
+      "correctAnswer": "Structured Query Language"
+    },
+    {
+      "questionId": 13,
+      "question": "What is the main difference between SQL and NoSQL?",
+      "selected": "SQL is faster than NoSQL.",
+      "correct": false,
+      "correctAnswer": "SQL is based on relational tables, whereas NoSQL is based on documents, graphs or other data structures."
+    }
+  ]
+}

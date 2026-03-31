@@ -1,0 +1,37 @@
+{
+  "submitted_at": "2026-03-31T08:26:53.545126+00:00",
+  "username": "testuser",
+  "mcq_type": "API / HTTP",
+  "score": 0,
+  "total": 4,
+  "answers": [
+    {
+      "questionId": 10,
+      "question": "Which HTTP method is used to retrieve data from a server without modifying it?",
+      "selected": null,
+      "correct": false,
+      "correctAnswer": "GET"
+    },
+    {
+      "questionId": 11,
+      "question": "What does the acronym 'URL' stand for?",
+      "selected": null,
+      "correct": false,
+      "correctAnswer": "Uniform Resource Locator"
+    },
+    {
+      "questionId": 24,
+      "question": "What does the acronym 'API' stand for in computing?",
+      "selected": null,
+      "correct": false,
+      "correctAnswer": "Application Programming Interface"
+    },
+    {
+      "questionId": 42,
+      "question": "Which HTTP status code typically means 'Created' after a successful POST?",
+      "selected": null,
+      "correct": false,
+      "correctAnswer": "201 Created"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Private / personal files (do not commit)
+*.pdf
+*.jpg
+*.png
+
+# Python
+backend/.venv/
+__pycache__/
+*.py[cod]
+.Python
+*.egg-info/
+.eggs/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Environment
+frontend/.env
+
+# Context files (internal)
+context/

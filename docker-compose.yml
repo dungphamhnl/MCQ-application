@@ -1,0 +1,23 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+      - ./exports:/app/exports
+    environment:
+      JANEQ_REPO_ROOT: /app
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+      args:
+        VITE_JANEQ_URL: http://localhost:8000
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
