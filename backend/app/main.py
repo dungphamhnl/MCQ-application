@@ -13,6 +13,7 @@ from app.config import settings
 from app.schemas import (
     AnswerItem,
     HistoryResponse,
+    HistoryRow,
     QuestionPublic,
     ResultItem,
     SubmitRequest,
