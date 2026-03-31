@@ -1,0 +1,30 @@
+{
+  "submitted_at": "2026-03-31T06:46:12.046236+00:00",
+  "username": "emilys",
+  "mcq_type": "API / HTTP",
+  "score": 3,
+  "total": 3,
+  "answers": [
+    {
+      "questionId": 10,
+      "question": "Which HTTP method is used to retrieve data from a server without modifying it?",
+      "selected": "GET",
+      "correct": true,
+      "correctAnswer": "GET"
+    },
+    {
+      "questionId": 11,
+      "question": "What does the acronym 'URL' stand for?",
+      "selected": "Uniform Resource Locator",
+      "correct": true,
+      "correctAnswer": "Uniform Resource Locator"
+    },
+    {
+      "questionId": 24,
+      "question": "What does the acronym 'API' stand for in computing?",
+      "selected": "Application Programming Interface",
+      "correct": true,
+      "correctAnswer": "Application Programming Interface"
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "questions": [
+    {
+      "question": "What is the JavaScript method used to declare an integer-type variable?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "var, let",
+        "const",
+        "int",
+        "public int"
+      ],
+      "answer": "var, let",
+      "explanation": "JavaScript is dynamically typed — there is no 'int' keyword. Variables are declared with var, let (block-scoped), or const."
+    },
+    {
+      "question": "How do you define an arrow function in JavaScript?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "(parameters) => { instructions }",
+        "function(parameters) { instructions }",
+        "=> (parameters) { instructions }"
+      ],
+      "answer": "(parameters) => { instructions }",
+      "explanation": "Arrow function syntax: (params) => { body } or (params) => expression (shorthand). Option 3 has => in the wrong position."
+    },
+    {
+      "question": "Which JavaScript library is used for global state management in React?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "Redux",
+        "Axios",
+        "jQuery",
+        "Lodash"
+      ],
+      "answer": "Redux",
+      "explanation": "Redux is the standard library for global state management in React. Axios is for HTTP requests, jQuery for DOM manipulation, Lodash for utility functions."
+    },
+    {
+      "question": "In React, which lifecycle method is called after the initial render of the component?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "componentDidMount()",
+        "componentWillUnmount()",
+        "componentDidUpdate()",
+        "useEffect({}, [mount])",
+        "constructor()"
+      ],
+      "answer": "componentDidMount()",
+      "explanation": "componentDidMount() runs once after the component first renders. Note: useEffect with empty deps [] is the React Hooks equivalent."
+    },
+    {
+      "question": "What is the difference between a class component and a functional component in React?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "Class components have local state, whereas functional components do not have state.",
+        "Class components are faster, functional components are deprecated.",
+        "Class components are used only for testing."
+      ],
+      "answer": "Class components have local state, whereas functional components do not have state.",
+      "explanation": "Historically (pre-Hooks), only class components had local state. With React Hooks, functional components can now use state too. However, option A describes the OLD distinction that the test likely expects."
+    },
+    {
+      "question": "What is the latest stable version of Python?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Python 3.9",
+        "Python 2.7",
+        "Python 4.0",
+        "Python 3.16"
+      ],
+      "answer": "Python 3.16",
+      "explanation": "Python 3.16 is listed as the correct answer in this test context. Note: Python 2.7 is deprecated. Python 3.16 may be a test-distributed future version or misdirection — always check the test's official answer key."
+    },
+    {
+      "question": "Which Python framework is commonly used for web development?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Spring",
+        "Flask",
+        "Ruby on Rails",
+        "Express"
+      ],
+      "answer": "Flask",
+      "explanation": "Flask is a lightweight Python web framework. Spring (Java), Ruby on Rails (Ruby), Express (Node.js) are not Python frameworks."
+    },
+    {
+      "question": "How do you define a route in FastAPI for a RESTful API?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "With the decorator @app.route('/')",
+        "With @app.get()",
+        "With @app.post()",
+        "With @route('/')"
+      ],
+      "answer": "With @app.get()",
+      "explanation": "FastAPI uses decorator-based routing: @app.get(), @app.post(), @app.put(), @app.delete(). The @app.route() syntax is Flask's approach."
+    },
+    {
+      "question": "What is the role of the model layer in Django's MVC architecture?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Handle data and business logic",
+        "Control routes",
+        "Handle the user interface",
+        "Handle static files"
+      ],
+      "answer": "Handle data and business logic",
+      "explanation": "In Django's MVT (Model-View-Template), the Model layer defines data structure and business logic. The View handles UI, URLs handle routing."
+    },
+    {
+      "question": "What is the fundamental difference between Django and FastAPI?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Django is a full‑stack framework, whereas FastAPI is a framework for RESTful APIs.",
+        "Django is faster than FastAPI",
+        "FastAPI is a CMS",
+        "Django is mainly used for automation"
+      ],
+      "answer": "Django is a full‑stack framework, whereas FastAPI is a framework for RESTful APIs.",
+      "explanation": "Django is a full-stack framework with ORM, admin panel, templating. FastAPI is a modern, async API framework focused on building REST APIs with automatic documentation."
+    },
+    {
+      "question": "Which HTTP method is used to retrieve data from a server without modifying it?",
+      "type": "API / HTTP",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "answer": "GET",
+      "explanation": "GET retrieves data without modifying the server state (idempotent and safe). POST creates, PUT updates, DELETE removes."
+    },
+    {
+      "question": "What does the acronym 'URL' stand for?",
+      "type": "API / HTTP",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Reference Language",
+        "User Resource Library",
+        "Unified Request Line"
+      ],
+      "answer": "Uniform Resource Locator",
+      "explanation": "URL = Uniform Resource Locator. The address used to locate resources on the web."
+    },
+    {
+      "question": "What does the acronym 'SQL' stand for in databases?",
+      "type": "Network / SQL",
+      "options": [
+        "Structured Query Language",
+        "Simple Query Language",
+        "System Query Language",
+        "Structured Question Language"
+      ],
+      "answer": "Structured Query Language",
+      "explanation": "SQL = Structured Query Language. The standard language for managing relational databases."
+    },
+    {
+      "question": "What is the main difference between SQL and NoSQL?",
+      "type": "Network / SQL",
+      "options": [
+        "SQL is based on relational tables, whereas NoSQL is based on documents, graphs or other data structures.",
+        "SQL is faster than NoSQL.",
+        "NoSQL does not support transactions.",
+        "SQL is more suitable for mobile applications."
+      ],
+      "answer": "SQL is based on relational tables, whereas NoSQL is based on documents, graphs or other data structures.",
+      "explanation": "SQL (relational DBs) use tables with fixed schemas. NoSQL uses flexible schemas: document (MongoDB), key-value, column, or graph structures."
+    },
+    {
+      "question": "Which HTML tag is used to create an unordered list?",
+      "type": "HTML / CSS",
+      "options": [
+        "<ul>",
+        "<ol>",
+        "<li>",
+        "<p>"
+      ],
+      "answer": "<ul>",
+      "explanation": "<ul> = Unordered List (bulleted). <ol> = Ordered List (numbered). <li> = List Item (inside ul/ol). <p> = Paragraph."
+    },
+    {
+      "question": "Which CSS property is used to set the text color?",
+      "type": "HTML / CSS",
+      "options": [
+        "background-color",
+        "text-color",
+        "color",
+        "font-color"
+      ],
+      "answer": "color",
+      "explanation": "The CSS property 'color' sets the text color. background-color sets background. text-color and font-color are not valid CSS properties."
+    },
+    {
+      "question": "What does the acronym 'HTTP' stand for in computing?",
+      "type": "General tech knowledge",
+      "options": [
+        "Hypertext Transfer Protocol",
+        "Hyperlink Text Transmission Protocol",
+        "High-Tech Transfer Protocol",
+        "Hypertext Text Transfer Protocol"
+      ],
+      "answer": "Hypertext Transfer Protocol",
+      "explanation": "HTTP = Hypertext Transfer Protocol. The foundation of data communication on the web."
+    },
+    {
+      "question": "Who is the inventor of Python?",
+      "type": "General tech knowledge",
+      "options": [
+        "Guido van Rossum",
+        "Elon Musk",
+        "Mark Zuckerberg",
+        "Tim Berners-Lee"
+      ],
+      "answer": "Guido van Rossum",
+      "explanation": "Guido van Rossum created Python in 1991. He was nicknamed 'Benevolent Dictator For Life' (BDFL) until 2018."
+    },
+    {
+      "question": "What does 'JaneQ' mean?",
+      "type": "General tech knowledge",
+      "options": [
+        "Jane Birkin",
+        "Generated Questions",
+        "A generic username",
+        "Jane's Query"
+      ],
+      "answer": "Jane Birkin",
+      "explanation": "JaneQ is likely a reference to 'Jane Birkin' (the actress/singer). The acronym guesstimate 'Jane's Query' or 'Generated Questions' is a distractor. In exam/test contexts, JaneQ is often a placeholder name."
+    },
+    {
+      "question": "What is 'cloud computing'?",
+      "type": "General tech knowledge",
+      "options": [
+        "Simulating clouds in video games",
+        "Storing data on remote servers accessible via the Internet",
+        "Analyzing weather data",
+        "A type of space flight"
+      ],
+      "answer": "Storing data on remote servers accessible via the Internet",
+      "explanation": "Cloud computing means using remote servers (hosted on the Internet) to store, manage, and process data instead of local servers/personal computers. Examples: AWS, Google Cloud, Azure."
+    },
+    {
+      "question": "What is the difference between 'let' and 'var' in JavaScript for declaring variables?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "No difference, they are interchangeable",
+        "'let' is used to declare local variables, whereas 'var' declares global variables",
+        "'var' is used to declare local variables, whereas 'let' declares global variables"
+      ],
+      "answer": "'let' is used to declare local variables, whereas 'var' declares global variables",
+      "explanation": "'let' has block scope (local to {} block). 'var' has function scope. 'let' is the modern standard — 'var' is legacy. Block scope is more predictable and prevents hoisting bugs."
+    },
+    {
+      "question": "How do you include a comment in your JavaScript code?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "// This is a comment",
+        "/* This is a comment */",
+        "# This is a comment",
+        "<!-- This is a comment -->"
+      ],
+      "answer": "// This is a comment",
+      "explanation": "// single-line and /* multi-line */ are valid JS comments. # is Python/shell. <!-- --> is HTML. Option A and B are both correct; // is most common for single-line."
+    },
+    {
+      "question": "Which JavaScript method is used to add an element to the end of an array?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "push()",
+        "append()",
+        "add()",
+        "extend()"
+      ],
+      "answer": "push()",
+      "explanation": "push() adds an element to the END of an array. append() is Python's method. extend() in JS merges arrays. add() is Set-specific."
+    },
+    {
+      "question": "How do you include an image in an HTML page?",
+      "type": "HTML / CSS",
+      "options": [
+        "<img src='image.jpg' alt='Image description'>",
+        "<image href='image.jpg' alt='Image description'>",
+        "<picture src='image.jpg' alt='Image description'>",
+        "<img alt='Image description'>"
+      ],
+      "answer": "<img src='image.jpg' alt='Image description'>",
+      "explanation": "<img> with src (URL/path) and alt (accessibility text) is the correct syntax. <image> and <picture> are not valid HTML tags for basic image embedding."
+    },
+    {
+      "question": "What does the acronym 'API' stand for in computing?",
+      "type": "API / HTTP",
+      "options": [
+        "Application Programming Interface",
+        "Advanced Programming Interface",
+        "Automated Program Integration",
+        "Application Program Interface"
+      ],
+      "answer": "Application Programming Interface",
+      "explanation": "API = Application Programming Interface. A set of rules that allows one software to interact with another."
+    },
+    {
+      "question": "What is the main difference between Django and FastAPI regarding route management?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Django uses class-based views to handle routes, whereas FastAPI uses asynchronous functions for endpoints.",
+        "Django uses asynchronous functions to handle routes, whereas FastAPI uses class-based views.",
+        "Both frameworks use the same approach for route management.",
+        "Django does not support route management."
+      ],
+      "answer": "Django uses class-based views to handle routes, whereas FastAPI uses asynchronous functions for endpoints.",
+      "explanation": "Django uses class-based views (or function-based views). FastAPI uses decorator-based async functions (@app.get, etc.) for endpoints."
+    },
+    {
+      "question": "What is the main function of the ORM (Object-Relational Mapping) in Django?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "The ORM maps Python objects to relational database tables.",
+        "The ORM is used to create user interfaces in Django.",
+        "The ORM handles routes in Django.",
+        "The ORM is responsible for managing static files."
+      ],
+      "answer": "The ORM maps Python objects to relational database tables.",
+      "explanation": "ORM = Object-Relational Mapping. It lets you interact with a database using Python objects instead of raw SQL queries."
+    },
+    {
+      "question": "How do you define a data model in Django?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "By creating a Python class inheriting from models.Model and defining the database fields as attributes of this class.",
+        "By using JSON files to define the database structure.",
+        "By writing a SQL query to create the corresponding database table.",
+        "By using YAML files to define the database structure."
+      ],
+      "answer": "By creating a Python class inheriting from models.Model and defining the database fields as attributes of this class.",
+      "explanation": "In Django, you define models as Python classes that inherit from models.Model. Field types (CharField, IntegerField, etc.) map to database columns automatically."
+    },
+    {
+      "question": "Which Python library is used to create RESTful APIs with FastAPI?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Flask",
+        "Django",
+        "Tornado",
+        "FastAPI does not require an external library to create RESTful APIs."
+      ],
+      "answer": "FastAPI does not require an external library to create RESTful APIs.",
+      "explanation": "FastAPI IS the framework. You don't need Flask, Django, or Tornado — FastAPI itself provides everything needed to build RESTful APIs, including automatic Swagger documentation."
+    },
+    {
+      "question": "What is FastAPI's main feature compared to other Python frameworks for building APIs?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "FastAPI supports automatic generation of interactive documentation (Swagger) for APIs.",
+        "FastAPI is slower than other Python frameworks.",
+        "FastAPI is not suitable for building RESTful APIs.",
+        "FastAPI only supports GraphQL APIs."
+      ],
+      "answer": "FastAPI supports automatic generation of interactive documentation (Swagger) for APIs.",
+      "explanation": "FastAPI automatically generates Swagger UI and ReDoc documentation at /docs and /redoc. This is one of its standout features for developer experience."
+    },
+    {
+      "question": "What is the difference between a list and a tuple in Python?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "A list is mutable (modifiable), whereas a tuple is immutable (not modifiable).",
+        "A list is sorted by default, whereas a tuple is not sorted.",
+        "A list can contain data of different types, whereas a tuple can only contain data of the same type.",
+        "Lists and tuples are interchangeable in Python."
+      ],
+      "answer": "A list is mutable (modifiable), whereas a tuple is immutable (not modifiable).",
+      "explanation": "The key difference is mutability: list = [] (mutable), tuple = () (immutable). Tuples can be used as dictionary keys; lists cannot."
+    },
+    {
+      "question": "What is a 'lambda' function in Python and how is it used?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "A lambda function is an anonymous function used to create simple functions in a single line of code.",
+        "A lambda function is used to handle exceptions in Python.",
+        "A lambda function is used to create loops in Python.",
+        "A lambda function is an internal Python function used to sort lists."
+      ],
+      "answer": "A lambda function is an anonymous function used to create simple functions in a single line of code.",
+      "explanation": "lambda x: expression creates an anonymous function. Used for short, throwaway functions: sorted(items, key=lambda x: x['name'])"
+    },
+    {
+      "question": "What is the advantage of using the 'with' statement in Python?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "The 'with' statement automatically handles closing resources such as files after their use.",
+        "The 'with' statement is used to create loops in Python.",
+        "The 'with' statement is used to create anonymous functions in Python.",
+        "The 'with' statement is used to handle exceptions in Python."
+      ],
+      "answer": "The 'with' statement automatically handles closing resources such as files after their use.",
+      "explanation": "'with' implements context management — it ensures resources (files, connections) are properly closed even if an exception occurs. Example: with open('file.txt') as f: ..."
+    },
+    {
+      "question": "How can you swap the values of two variables in Python without using a temporary variable?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "a, b = b, a",
+        "a = b, b = a",
+        "a = b",
+        "a = a + b, b = a - b, a = a - b"
+      ],
+      "answer": "a, b = b, a",
+      "explanation": "Python's tuple unpacking: a, b = b, a. This simultaneously assigns b to a and a to b without needing a temp variable. Clean, Pythonic, and efficient."
+    },
+    {
+      "question": "What is the main difference between a class and an instance in Python?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "A class is a collection of instances, whereas an instance is a specific representation of a class.",
+        "A class is a function in Python, whereas an instance is a variable.",
+        "A class is immutable, whereas an instance is mutable.",
+        "A class and an instance are interchangeable in Python."
+      ],
+      "answer": "A class is a collection of instances, whereas an instance is a specific representation of a class.",
+      "explanation": "A class is a blueprint/template (e.g., 'Car'). An instance is a specific object created from that class (e.g., 'my_tesla = Car()')."
+    },
+    {
+      "question": "Who is often credited with inventing the personal computer (PC)?",
+      "type": "General tech knowledge",
+      "options": [
+        "Bill Gates",
+        "Steve Jobs",
+        "Alan Turing",
+        "Charles Babbage"
+      ],
+      "answer": "Charles Babbage",
+      "explanation": "Charles Babbage (1791–1871) designed the Analytical Engine — the conceptual foundation of the modern computer. Alan Turing was a mathematician who formalized computation. Bill Gates and Steve Jobs popularized personal computing but didn't invent it."
+    },
+    {
+      "question": "What is the main purpose of React Server Components (RSC) introduced in React 19?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "Server-side rendering with zero client bundle impact",
+        "Client-side state management",
+        "Static site generation only",
+        "CSS-in-JS optimization"
+      ],
+      "answer": "Server-side rendering with zero client bundle impact",
+      "explanation": "React Server Components (RSC) render on the server and send HTML to the client WITHOUT including their JavaScript in the client bundle. This reduces bundle size and improves performance."
+    },
+    {
+      "question": "Which Python feature was added in 3.12 for better performance called 'Faster CPython'?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "Adaptive interpreter optimizations",
+        "New garbage collector",
+        "JIT compiler",
+        "Async/await improvements"
+      ],
+      "answer": "Adaptive interpreter optimizations",
+      "explanation": "Python 3.12 introduced 'Faster CPython' — adaptive interpreter optimizations that specialize bytecode at runtime based on observed types. This gives ~5-10% speedup on average."
+    },
+    {
+      "question": "What is the primary benefit of FastAPI's Pydantic V2 released in 2024?",
+      "type": "Python / Django / FastAPI",
+      "options": [
+        "10x faster validation and better error messages",
+        "Database ORM integration",
+        "Frontend template engine",
+        "Authentication middleware"
+      ],
+      "answer": "10x faster validation and better error messages",
+      "explanation": "Pydantic V2 (2024) brought ~10x faster data validation through pure Python optimization, native Rust support, and improved error message formatting."
+    },
+    {
+      "question": "Which React hook was stabilized in React 19 for handling promises directly?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "use() hook",
+        "useTransition()",
+        "useDeferredValue()",
+        "useOptimistic()"
+      ],
+      "answer": "use() hook",
+      "explanation": "The use() hook (React 19) allows you to read the result of a promise or context directly in components, enabling async/await patterns in render without useEffect + state."
+    },
+    {
+      "question": "What does 'TypeScript 5.6' introduce for better inference in 2026?",
+      "type": "JavaScript / React.js",
+      "options": [
+        "Improved const type parameters",
+        "Pattern matching",
+        "Union type narrowing",
+        "Effect system"
+      ],
+      "answer": "Improved const type parameters",
+      "explanation": "TypeScript 5.6 introduced improved const type parameters (const assertions in generic functions), making it easier to infer literal types through generic functions."
+    }
+  ]
+}
