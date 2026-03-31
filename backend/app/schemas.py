@@ -23,8 +23,8 @@ class AnswerItem(BaseModel):
 class SubmitRequest(BaseModel):
     """Payload to grade a completed MCQ attempt."""
 
-    username: str
-    mcq_type: str = Field(alias="mcqType")
+    username: str = Field(max_length=100)
+    mcq_type: str = Field(alias="mcqType", max_length=100)
 
     answers: list[AnswerItem]
 
@@ -53,3 +53,29 @@ class SubmitResponse(BaseModel):
     export_path: str = Field(serialization_alias="exportPath")
 
     model_config = {"populate_by_name": True, "by_alias": True}
+
+
+class TypesResponse(BaseModel):
+    """List of available MCQ categories."""
+
+    types: list[str]
+
+
+class HistoryRow(BaseModel):
+    """Single past attempt summary."""
+
+    file: str
+    exportPath: str = Field(serialization_alias="exportPath")
+    submittedAt: str = Field(serialization_alias="submittedAt")
+    username: str
+    mcqType: str = Field(serialization_alias="mcqType")
+    score: int
+    total: int
+
+    model_config = {"populate_by_name": True, "by_alias": True}
+
+
+class HistoryResponse(BaseModel):
+    """Paginated list of recent submissions."""
+
+    attempts: list[HistoryRow]

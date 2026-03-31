@@ -6,11 +6,19 @@ from contextlib import asynccontextmanager
 from datetime import UTC, datetime
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, status
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.schemas import AnswerItem, QuestionPublic, ResultItem, SubmitRequest, SubmitResponse
+from app.schemas import (
+    AnswerItem,
+    HistoryResponse,
+    QuestionPublic,
+    ResultItem,
+    SubmitRequest,
+    SubmitResponse,
+    TypesResponse,
+)
 from app.store import list_types, load_questions, questions_by_type
 
 
@@ -81,7 +89,13 @@ def _write_export(
     ts = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     fname = f"submission_{_safe_filename_part(username)}_{ts}_{_safe_filename_part(mcq_type)}.json"
     out = exports_dir / fname
-    out.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    try:
+        out.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    except OSError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to write export file: {exc}",
+        )
     # Path relative to repo for display / git
     try:
         rel = out.relative_to(settings.repo_root)
@@ -96,7 +110,10 @@ async def lifespan(app: FastAPI):
     path = settings.questions_path
     if not path.is_file():
         raise RuntimeError(f"Questions file not found: {path}")
-    load_questions(path)
+    try:
+        load_questions(path)
+    except Exception as exc:
+        raise RuntimeError(f"Failed to load questions: {exc}") from exc
     yield
 
 
@@ -123,10 +140,10 @@ def health():
     return {"status": "ok"}
 
 
-@app.get("/api/types")
+@app.get("/api/types", response_model=TypesResponse)
 def api_types():
     """List all MCQ categories from JaneQ."""
-    return {"types": list_types()}
+    return TypesResponse(types=list_types())
 
 
 @app.get("/api/questions", response_model=list[QuestionPublic])
@@ -138,7 +155,12 @@ def api_questions(type: str = Query(..., alias="type", description="MCQ type lab
     return [QuestionPublic(id=q.id, question=q.question, options=q.options) for q in qs]
 
 
-@app.post("/api/submit", response_model=SubmitResponse, response_model_by_alias=True)
+@app.post(
+    "/api/submit",
+    response_model=SubmitResponse,
+    response_model_by_alias=True,
+    status_code=status.HTTP_201_CREATED,
+)
 def api_submit(body: SubmitRequest):
     """Grade answers, return breakdown, and save export file in repo."""
     items, score, total = _grade_submission(body.mcq_type, body.answers)
@@ -170,29 +192,29 @@ def api_submit(body: SubmitRequest):
     )
 
 
-@app.get("/api/history")
-def api_history(limit: int = 30):
+@app.get("/api/history", response_model=HistoryResponse)
+def api_history(limit: int = Query(default=30, ge=1, le=100)):
     """List recent submissions from export files (bonus: past MCQ attempts)."""
     exports_dir: Path = settings.exports_dir
     if not exports_dir.is_dir():
-        return {"attempts": []}
-    rows: list[dict] = []
+        return HistoryResponse(attempts=[])
+    rows: list[HistoryRow] = []
     for path in sorted(exports_dir.glob("submission_*.json"), key=lambda p: p.stat().st_mtime, reverse=True):
         if len(rows) >= limit:
             break
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
             rows.append(
-                {
-                    "file": path.name,
-                    "exportPath": str(path.relative_to(settings.repo_root)).replace("\\", "/"),
-                    "submittedAt": data.get("submitted_at", ""),
-                    "username": data.get("username", ""),
-                    "mcqType": data.get("mcq_type", ""),
-                    "score": data.get("score", 0),
-                    "total": data.get("total", 0),
-                }
+                HistoryRow(
+                    file=path.name,
+                    exportPath=str(path.relative_to(settings.repo_root)).replace("\\", "/"),
+                    submittedAt=data.get("submitted_at", ""),
+                    username=data.get("username", ""),
+                    mcqType=data.get("mcq_type", ""),
+                    score=data.get("score", 0),
+                    total=data.get("total", 0),
+                )
             )
         except (OSError, json.JSONDecodeError, ValueError):
             continue
-    return {"attempts": rows}
+    return HistoryResponse(attempts=rows)
