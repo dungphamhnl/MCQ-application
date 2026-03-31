@@ -1,0 +1,135 @@
+{
+  "submitted_at": "2026-03-31T07:43:26.883737+00:00",
+  "username": "emilys",
+  "mcq_type": "Python / Django / FastAPI",
+  "score": 3,
+  "total": 18,
+  "answers": [
+    {
+      "questionId": 5,
+      "question": "What is the latest stable version of Python?",
+      "selected": "Python 4.0",
+      "correct": false,
+      "correctAnswer": "Python 3.16"
+    },
+    {
+      "questionId": 6,
+      "question": "Which Python framework is commonly used for web development?",
+      "selected": "Express",
+      "correct": false,
+      "correctAnswer": "Flask"
+    },
+    {
+      "questionId": 7,
+      "question": "How do you define a route in FastAPI for a RESTful API?",
+      "selected": "With @route('/')",
+      "correct": false,
+      "correctAnswer": "With @app.get()"
+    },
+    {
+      "questionId": 8,
+      "question": "What is the role of the model layer in Django's MVC architecture?",
+      "selected": "Handle static files",
+      "correct": false,
+      "correctAnswer": "Handle data and business logic"
+    },
+    {
+      "questionId": 9,
+      "question": "What is the fundamental difference between Django and FastAPI?",
+      "selected": "Django is mainly used for automation",
+      "correct": false,
+      "correctAnswer": "Django is a full‑stack framework, whereas FastAPI is a framework for RESTful APIs."
+    },
+    {
+      "questionId": 25,
+      "question": "What is the main difference between Django and FastAPI regarding route management?",
+      "selected": "Both frameworks use the same approach for route management.",
+      "correct": false,
+      "correctAnswer": "Django uses class-based views to handle routes, whereas FastAPI uses asynchronous functions for endpoints."
+    },
+    {
+      "questionId": 26,
+      "question": "What is the main function of the ORM (Object-Relational Mapping) in Django?",
+      "selected": "The ORM handles routes in Django.",
+      "correct": false,
+      "correctAnswer": "The ORM maps Python objects to relational database tables."
+    },
+    {
+      "questionId": 27,
+      "question": "How do you define a data model in Django?",
+      "selected": "By writing a SQL query to create the corresponding database table.",
+      "correct": false,
+      "correctAnswer": "By creating a Python class inheriting from models.Model and defining the database fields as attributes of this class."
+    },
+    {
+      "questionId": 28,
+      "question": "Which Python library is used to create RESTful APIs with FastAPI?",
+      "selected": "FastAPI does not require an external library to create RESTful APIs.",
+      "correct": true,
+      "correctAnswer": "FastAPI does not require an external library to create RESTful APIs."
+    },
+    {
+      "questionId": 29,
+      "question": "What is FastAPI's main feature compared to other Python frameworks for building APIs?",
+      "selected": "FastAPI is not suitable for building RESTful APIs.",
+      "correct": false,
+      "correctAnswer": "FastAPI supports automatic generation of interactive documentation (Swagger) for APIs."
+    },
+    {
+      "questionId": 30,
+      "question": "What is the difference between a list and a tuple in Python?",
+      "selected": "A list is sorted by default, whereas a tuple is not sorted.",
+      "correct": false,
+      "correctAnswer": "A list is mutable (modifiable), whereas a tuple is immutable (not modifiable)."
+    },
+    {
+      "questionId": 31,
+      "question": "What is a 'lambda' function in Python and how is it used?",
+      "selected": "A lambda function is an anonymous function used to create simple functions in a single line of code.",
+      "correct": true,
+      "correctAnswer": "A lambda function is an anonymous function used to create simple functions in a single line of code."
+    },
+    {
+      "questionId": 32,
+      "question": "What is the advantage of using the 'with' statement in Python?",
+      "selected": "The 'with' statement automatically handles closing resources such as files after their use.",
+      "correct": true,
+      "correctAnswer": "The 'with' statement automatically handles closing resources such as files after their use."
+    },
+    {
+      "questionId": 33,
+      "question": "How can you swap the values of two variables in Python without using a temporary variable?",
+      "selected": "a = b",
+      "correct": false,
+      "correctAnswer": "a, b = b, a"
+    },
+    {
+      "questionId": 34,
+      "question": "What is the main difference between a class and an instance in Python?",
+      "selected": "A class and an instance are interchangeable in Python.",
+      "correct": false,
+      "correctAnswer": "A class is a collection of instances, whereas an instance is a specific representation of a class."
+    },
+    {
+      "questionId": 37,
+      "question": "Which Python feature was added in 3.12 for better performance called 'Faster CPython'?",
+      "selected": "Async/await improvements",
+      "correct": false,
+      "correctAnswer": "Adaptive interpreter optimizations"
+    },
+    {
+      "questionId": 38,
+      "question": "What is the primary benefit of FastAPI's Pydantic V2 released in 2024?",
+      "selected": "Frontend template engine",
+      "correct": false,
+      "correctAnswer": "10x faster validation and better error messages"
+    },
+    {
+      "questionId": 41,
+      "question": "In FastAPI, what does dependency injection with Depends() primarily help with?",
+      "selected": "Replacing the need for HTTP",
+      "correct": false,
+      "correctAnswer": "Sharing database sessions and auth across routes"
+    }
+  ]
+}

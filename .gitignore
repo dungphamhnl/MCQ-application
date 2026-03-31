@@ -15,7 +15,8 @@ frontend/dist/
 .idea/
 .vscode/
 
-# Optional: ignore auto exports except .gitkeep (uncomment if you prefer not to commit runs)
-# exports/*.json
-# !exports/.gitkeep
-questions_en.json
+# Environment
+frontend/.env
+
+# Context files (internal)
+context/

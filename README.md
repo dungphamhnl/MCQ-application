@@ -1,78 +1,80 @@
-# JaneQ — Online MCQ (MLX coding test)
+# JaneQ — Online MCQ
 
-React frontend + FastAPI backend (**JaneQ**). Users authenticate with [DummyJSON](https://dummyjson.com/docs/auth), pick an MCQ category served from JaneQ, answer questions, get a scored review, and persist each attempt under `exports/`.
+React frontend + FastAPI backend. Users authenticate, pick an MCQ category, answer questions, and get a scored review with explanations. Each submission is exported as JSON.
 
-## Requirements
+Demo user: **emilys** / **emilyspass** (DummyJSON)
 
-- **Python 3.11+** (3.14+ may lack wheels for some deps; use 3.11 for the venv)
-- **Node.js 20+** (for the Vite app)
+---
 
-## Run locally
+## Stack
 
-### 1. Backend (JaneQ)
+| Layer | Tech |
+|---|---|
+| Backend | FastAPI — async REST API |
+| Frontend | React + TypeScript + Vite |
+| Auth | DummyJSON (`localStorage` token) |
+| Data | Local JSON — no database |
+
+---
+
+## Run
 
 ```bash
-cd backend
-python3.11 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+# Backend
+cd backend && source .venv/bin/activate
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+
+# Frontend
+cd frontend && cp .env.example .env && npm install && npm run dev
 ```
 
-Question bank: [`data/questions_en.json`](data/questions_en.json).  
-Optional: `JANEQ_REPO_ROOT` = absolute path to this repo root (used in Docker).
+Frontend: `http://localhost:5173`
+API docs: `http://localhost:8000/docs`
 
-### 2. Frontend
-
-```bash
-cd frontend
-cp .env.example .env
-# Edit .env if JaneQ is not on http://127.0.0.1:8000
-npm install
-npm run dev
-```
-
-Open the URL shown (usually `http://localhost:5173`). Demo login: **emilys** / **emilyspass** (DummyJSON).
-
-## API (JaneQ)
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/health` | Liveness |
-| GET | `/api/types` | MCQ categories |
-| GET | `/api/questions?type=...` | Questions for a type (no correct answers) |
-| POST | `/api/submit` | Body: `{ "username", "mcqType", "answers": [{ "questionId", "selected" }] }` — score + export file |
-| GET | `/api/history` | Recent rows from `exports/submission_*.json` |
-
-## Docker Compose
-
-From repo root:
+### Docker
 
 ```bash
 docker compose up --build
+# API: http://localhost:8000
+# Web:  http://localhost:8080
 ```
 
-- API: `http://localhost:8000`
-- Web (nginx + static build): `http://localhost:8080`  
-  The SPA is built with `VITE_JANEQ_URL=http://localhost:8000` so the browser calls JaneQ on your machine.
+---
 
-## Features implemented
+## API — JaneQ
 
-- DummyJSON login, protected routes
-- Types and questions from JaneQ REST API
-- Per-question countdown (60s), **Next** disabled until an option is selected
-- Server-side scoring + breakdown with explanations
-- **Export** of each submission JSON under `exports/` (tracked in git)
-- **Past attempts** list on the home screen (`/api/history`)
-- `docker-compose.yml` for API + static frontend
+| Method | Path | Description |
+|---|---|---|
+| GET | `/health` | Liveness |
+| GET | `/api/types` | MCQ categories |
+| GET | `/api/questions?type=...` | Questions (no correct answers) |
+| POST | `/api/submit` | Score + breakdown + export file |
+| GET | `/api/history` | Past attempts from `exports/` |
 
-## Project layout
+---
+
+## Features
+
+- DummyJSON login → protected routes
+- One question per page, Next locked until answered
+- Per-question 60-second countdown timer
+- Server-side scoring — answers never sent to frontend
+- Score + per-question breakdown + explanations on results
+- Each submission exported to `exports/` (committed)
+- Past attempts list on home screen
+- Docker Compose: FastAPI + nginx serving static build
+
+---
+
+## Files
 
 ```
-backend/app/     # FastAPI JaneQ
-data/            # questions_en.json
-exports/         # submission_*.json written on submit
-frontend/        # Vite + React + TypeScript
+backend/app/     FastAPI: routes, store, schemas, config
+frontend/src/    React: pages, api, components
+data/            questions_en.json (50 questions, 8 categories)
+exports/         submission_*.json (per-attempt, committed)
+docker/          nginx.conf
+CLAUDE.md        project rules
+AI_USAGE.md      AI/LLM disclosure
+XPATH_ANSWERS.md theoretical XPath part
 ```
-
-See [`AI_USAGE.md`](AI_USAGE.md) for LLM / tool disclosure.

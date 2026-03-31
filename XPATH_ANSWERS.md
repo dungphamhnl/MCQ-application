@@ -1,50 +1,71 @@
-# XPath — theoretical answers (no code execution)
+# XPath — Theoretical Part
 
-Sample XML (nested `library`, several `book` elements with `type` attributes).
+Sample XML:
 
-## 1) Return all `book` elements
+```xml
+<library>
+  <book><title>toto1</title><author>titi</author></book>
+  <book type="doc"><title>toto2</title><author>titi</author></book>
+  <book type="roman"><title>toto3</title><author>titi</author></book>
+  <book type="bd"><title>toto4</title><author>titi2</author></book>
+  <library>
+    <book type="roman"><title>toto5</title><author>titi</author></book>
+  </library>
+</library>
+```
+
+---
+
+## Question 1
+**Return all `book` elements**
 
 ```xpath
 //book
 ```
 
-(or `/library//book` — same set for this document.)
+> `//` selects all `book` elements anywhere in the document.
+> Result: toto1, toto2, toto3, toto4, toto5 (all 5 books).
 
-## 2) Return all `title` elements whose parent is a `book` with `type` equal to `novel`
+---
+
+## Question 2
+**Return all `title` elements whose parent is a `book` with `type` attribute equal to `novel`**
 
 ```xpath
 //book[@type='novel']/title
 ```
 
-**Note on the given data:** the sample fragment uses `type` values such as `doc`, `roman`, and `bd`. There is **no** `type="novel"`, so this expression returns an **empty** node set on that XML. If the exam text meant `roman` (e.g. typo or line break), use:
+> Step 1: `//book[@type='novel']` — find all `book` elements where `type="novel"`
+> Step 2: `/title` — get their `title` child
+>
+> **Result on the given XML: empty node-set** (no book has `type="novel"` — existing types are `doc`, `roman`, `bd`)
 
-```xpath
-//book[@type='roman']/title
-```
+---
 
-which would select the `title` nodes for `toto3` and `toto5`.
-
-## 3) Return the number of `book` elements with `type` equal to `comic`
+## Question 3
+**Return the number of `book` elements with `type` attribute equal to `comic`**
 
 ```xpath
 count(//book[@type='comic'])
 ```
 
-On the provided sample there is **no** `comic` type, so the **count is 0**.
+> `count()` returns the number of nodes matching the expression.
+>
+> **Result on the given XML: `0`** (no book has `type="comic"`)
 
-## 4) What does `/library/library/ancestor-or-self::library` return?
+---
 
-The path `/library/library` selects the **inner** `library` element (the child of the outer `library`). Evaluating `ancestor-or-self::library` from that inner node yields:
-
-- the **inner** `library` (self), and  
-- its **ancestor** `library` (the outer root element).
-
-So the result is a **sequence of two** `library` nodes (typically in **document order**: outer first, then inner, depending on the XPath processor’s ordering rules for the combined axis; both nodes are included).
-
-**Query as written (absolute path, no dot):** In XPath 1.0 this is often read as a path that ends at the inner `library` with a **predicate** or **step** — the usual exam form is:
+## Question 4
+**What does the following XPath query return: `/library/library/ancestor-or-self::library`**
 
 ```xpath
 /library/library/ancestor-or-self::library
 ```
 
-which selects those two `library` elements as described above.
+Step by step:
+1. `/library/library` — selects the **inner** `<library>` (the one containing toto5)
+2. `ancestor-or-self::library` — from that inner node, includes itself **and** all its ancestors that are `<library>`
+   - `self` → inner `<library>`
+   - `ancestor` → outer `<library>` (parent of inner)
+
+> **Result: 2 `<library>` elements** — both the inner and outer library nodes.
