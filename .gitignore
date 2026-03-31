@@ -1,4 +1,5 @@
 # Private / personal files (do not commit)
+EMAIL_DRAFT.md
 *.pdf
 *.jpg
 *.png
